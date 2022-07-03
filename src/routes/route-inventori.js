@@ -2,8 +2,8 @@ require('dotenv').config();
 const router = require('express').Router();
 const { inventori } = require('../controllers');
 
-// GET localhost:8080/inventori => Ambil data semua inventori
-router.get('/inventori', inventori.getDataInventori);
+// GET localhost:8080/ => Ambil data semua inventori
+router.get('/', inventori.getDataInventori);
 
 // POST localhost:8080/inventori/add => Tambah data inventori ke database
 router.post('/inventori/add', inventori.addDataInventori);
