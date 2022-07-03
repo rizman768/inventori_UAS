@@ -1,23 +1,14 @@
-const express = require('express')
-const app = express()
+const express = require('express');
 const bodyParser = require('body-parser');
+const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-app.get('/', function (req, res) {
-  res.json({
-    type: 'get',
-    number: 1,
-    nama: 'Rizqi Maulana',
-    npm: '1842410'
-  });
-})
-
-app.post('/', (req, res) => {
-  res.json(req.body);
-});
+const appRoute = require('./src/routes/route-inventori');
+app.use('/', appRoute);
 
 app.set('port', (process.env.PORT || 8080));
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+app.listen(app.get('port'), ()=>{
+    console.log('Server Berjalan di Port : ', app.get('port'));
 });
