@@ -13,7 +13,7 @@ module.exports ={
             if (err) throw err;
             connection.query(
                 `
-                SELECT * FROM tabel_inventori;
+                SELECT * FROM inventori;
                 `
             , function (error, results) {
                 if(error) throw error;  
@@ -38,7 +38,7 @@ module.exports ={
             if (err) throw err;
             connection.query(
                 `
-                INSERT INTO tabel_inventori SET ?;
+                INSERT INTO inventori SET ?;
                 `
             , [data],
             function (error, results) {
@@ -64,7 +64,7 @@ module.exports ={
             if (err) throw err;
             connection.query(
                 `
-                UPDATE tabel_inventori SET ? WHERE inventori_id = ?;
+                UPDATE inventori SET ? WHERE inventori_id = ?;
                 `
             , [dataEdit, id],
             function (error, results) {
@@ -84,7 +84,7 @@ module.exports ={
             if (err) throw err;
             connection.query(
                 `
-                DELETE FROM tabel_Inventori WHERE inventori_id = ?;
+                DELETE FROM Inventori WHERE inventori_id = ?;
                 `
             , [id],
             function (error, results) {

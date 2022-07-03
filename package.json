@@ -8,17 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/okyzaprabowo/heroku-nodejs.git"
+    "url": "git+https://github.com/rizman768/inventori_UAS.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/okyzaprabowo/heroku-nodejs/issues"
-  },
-  "homepage": "https://github.com/okyzaprabowo/heroku-nodejs#readme",
+  "homepage": "https://github.com/rizman768/inventori_UAS#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "dotenv": "^16.0.1",
-    "express": "^4.17.3",
+    "express": "^4.18.1",
     "mysql": "^2.18.1"
   }
 }
