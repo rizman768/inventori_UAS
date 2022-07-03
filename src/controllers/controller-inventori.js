@@ -29,10 +29,10 @@ module.exports ={
     // Simpan data Inventori
     addDataInventori(req,res){
         let data = {
-            inventori_no_seri : req.body.no_seri,
-            inventori_nama_hp : req.body.nama_hp,
-            inventori_jenis_hp : req.body.jenis_hp,
-            inventori_tanggal_rilis : req.body.tanggal_rilis
+            no_seri : req.body.no_seri,
+            nama_hp : req.body.nama_hp,
+            jenis_hp : req.body.jenis_hp,
+            tanggal_produksi : req.body.tanggal_produksi
         }
         pool.getConnection(function(err, connection) {
             if (err) throw err;
@@ -54,17 +54,17 @@ module.exports ={
     // Update data Inventori
     editDataInventori(req,res){
         let dataEdit = {
-            inventori_no_seri : req.body.no_seri,
-            inventori_nama_hp : req.body.nama_hp,
-            inventori_jenis_hp : req.body.jenis_hp,
-            inventori_tanggal_rilis : req.body.tanggal_rilis
+            no_seri : req.body.no_seri,
+            nama_hp : req.body.nama_hp,
+            jenis_hp : req.body.jenis_hp,
+            tanggal_produksi : req.body.tanggal_produksi
         }
-        let id = req.body.id
+        let id = req.body.no_seri
         pool.getConnection(function(err, connection) {
             if (err) throw err;
             connection.query(
                 `
-                UPDATE inventori SET ? WHERE inventori_id = ?;
+                UPDATE inventori SET ? WHERE no_seri = ?;
                 `
             , [dataEdit, id],
             function (error, results) {
@@ -79,12 +79,12 @@ module.exports ={
     },
     // Delete data Inventori
     deleteDataInventori(req,res){
-        let id = req.body.id
+        let id = req.body.no_seri
         pool.getConnection(function(err, connection) {
             if (err) throw err;
             connection.query(
                 `
-                DELETE FROM Inventori WHERE inventori_id = ?;
+                DELETE FROM inventori WHERE no_seri = ?;
                 `
             , [id],
             function (error, results) {
